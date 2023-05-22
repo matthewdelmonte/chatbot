@@ -23,8 +23,8 @@ function ChatBox() {
       const response = await openai.createCompletion({
         model: "text-davinci-001",
         prompt: prompt,
-        temperature: 0.2, //2
-        max_tokens: 350, //7
+        temperature: 0.2,
+        max_tokens: 350,
       });
       setResult(response.data.choices[0].text);
       setLoading(false);
