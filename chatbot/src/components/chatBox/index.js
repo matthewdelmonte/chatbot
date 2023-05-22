@@ -4,7 +4,7 @@ import "./index.css";
 
 function ChatBox() {
   const config = new Configuration({
-    organization: "org-PkdEIY2TP25MB5UfQlPr9dgx",
+    organization: process.env.REACT_APP_OPENAI_ORG_KEY,
     apiKey: process.env.REACT_APP_OPENAI_API_KEY,
   });
 
@@ -15,7 +15,7 @@ function ChatBox() {
   const [error, setError] = useState("");
   const [consoleError, setConsoleError] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [chatVisible, setChatVisible] = useState(false); // Added a new state for handling visibility of the chatbox
+  const [chatVisible, setChatVisible] = useState(false);
 
   useEffect(() => {
     const errorHandler = (error) => {
@@ -40,8 +40,8 @@ function ChatBox() {
       // add a 3 second delay
       await new Promise((resolve) => setTimeout(resolve, 3000));
       const response = await openai.createCompletion({
-        // model: "babbage-code-search-code", // code writing model
-        model: "text-davinci-001", // text writing model
+        model: "text-davinci-002", // code writing model
+        // model: "text-davinci-001", // text writing model
         prompt: prompt,
         temperature: 0.2,
         max_tokens: 350,
@@ -77,7 +77,7 @@ function ChatBox() {
   return (
     <>
       <button className="chat-simulate-error" onClick={simulateError}>
-        Simulate Error
+        Simulate Javascript Error
       </button>
       {!chatVisible && (
         <button className="chat-toggle" onClick={handleChatToggle}>
