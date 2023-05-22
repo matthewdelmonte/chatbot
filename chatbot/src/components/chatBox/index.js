@@ -89,7 +89,7 @@ function ChatBox() {
           <button className="chat-toggle" onClick={handleChatToggle}>
             -
           </button>
-          <h2 className="chat-header">Personal ChatGPT</h2>
+          <h2 className="chat-header">Chatbot powered by OpenAI</h2>
           <textarea
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
