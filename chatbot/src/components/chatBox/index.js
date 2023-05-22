@@ -43,7 +43,7 @@ function ChatBox() {
 
   return (
     <div className="chat-container">
-      <h2 className="chat-header">Personal chat-GPT</h2>
+      <h2 className="chat-header">Personal ChatGPT</h2>
       <textarea
         value={prompt}
         onChange={(e) => setPrompt(e.target.value)}
