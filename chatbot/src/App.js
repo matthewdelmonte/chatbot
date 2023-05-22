@@ -1,11 +1,10 @@
-import './App.css';
+import "./App.css";
+import ChatBox from "./components/chatBox";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-          AI Chatbot POC
-      </header>
+      <ChatBox />
     </div>
   );
 }
