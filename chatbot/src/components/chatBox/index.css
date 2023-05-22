@@ -1,35 +1,43 @@
 .chat-container {
-  background-color: #f1f1f1;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
-  max-width: 500px;
-  margin: auto;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 350px;
+  height: 500px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
 }
 
 .chat-header {
+  background-color: rgb(25, 192, 125);
+  border-radius: 10px 10px 0 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 10px;
   text-align: center;
 }
 
 .chat-input {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
+  width: 345px;
+  flex-grow: 1;
+  margin-bottom: 10px;
+  overflow-y: auto;
   resize: none;
 }
 
 .chat-button {
-  background-color: rgb(25, 192, 125);
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
   width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: rgb(25, 192, 125);
+  color: #ffffff;
+  cursor: pointer;
 }
 
 .chat-button:hover {
@@ -37,9 +45,42 @@
 }
 
 .chat-result {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  margin-top: 20px;
+  border: none;
+  height: 100px;
+  resize: none;
+  padding: 10px;
+  overflow-y: scroll;
+  margin-bottom: 50px;
+  outline: none;
+}
+
+.chat-error {
+  margin-top: 10px;
+}
+
+.chat-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.1);
+  background-color: #6c7194;
+  color: #ffffff;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+}
+
+.chat-simulate-error {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #6c7194;
+  color: #fff;
 }
