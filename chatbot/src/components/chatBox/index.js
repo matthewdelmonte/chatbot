@@ -38,12 +38,10 @@ function ChatBox() {
   const handleChange = async () => {
     setLoading(true);
     try {
-      // add a 3 second delay
-      await new Promise((resolve) => setTimeout(resolve, 3000));
+      // add a 1 second delay
+      await new Promise((resolve) => setTimeout(resolve, 1000));
       const response = await openai.createCompletion({
-        // model: "text-davinci-002", // code writing model
-        // model: "text-davinci-001", // text writing model
-        model: model, // text writing model
+        model: model,
         prompt: prompt,
         temperature: 0.2,
         max_tokens: 350,
@@ -58,8 +56,8 @@ function ChatBox() {
   };
 
   const handleClick = async () => {
-    // add a 3 second delay
-    await new Promise((resolve) => setTimeout(resolve, 3000));
+    // add a 1 second delay
+    await new Promise((resolve) => setTimeout(resolve, 1000));
     handleChange();
   };
 
@@ -70,7 +68,7 @@ function ChatBox() {
   function simulateError() {
     try {
       let obj;
-      console.log(obj.property); // obj is undefined, so this will throw an error
+      console.log(obj.property); // Obj is undefined, so this will throw an error
     } catch (error) {
       setConsoleError(`Error at line 68, column 12: ${error.message}`);
     }
