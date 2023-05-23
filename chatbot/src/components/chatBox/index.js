@@ -16,6 +16,7 @@ function ChatBox() {
   const [consoleError, setConsoleError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [chatVisible, setChatVisible] = useState(false);
+  const [model, setModel] = useState("text-davinci-001");
 
   useEffect(() => {
     const errorHandler = (error) => {
@@ -40,8 +41,9 @@ function ChatBox() {
       // add a 3 second delay
       await new Promise((resolve) => setTimeout(resolve, 3000));
       const response = await openai.createCompletion({
-        model: "text-davinci-002", // code writing model
+        // model: "text-davinci-002", // code writing model
         // model: "text-davinci-001", // text writing model
+        model: model, // text writing model
         prompt: prompt,
         temperature: 0.2,
         max_tokens: 350,
@@ -89,7 +91,22 @@ function ChatBox() {
           <button className="chat-toggle" onClick={handleChatToggle}>
             -
           </button>
-          <h2 className="chat-header">Chatbot powered by OpenAI</h2>
+          <div className="chat-header">
+            <h2>Chatbot powered by OpenAI</h2>
+            <div>
+              <span>Select Model:</span>
+              <select
+                value={model}
+                onChange={(e) => {
+                  setModel(e.target.value);
+                }}
+                className="chat-switch"
+              >
+                <option value="text-davinci-001">Davinci 001 (General)</option>
+                <option value="text-davinci-002">Davinci 002 (Code)</option>
+              </select>
+            </div>
+          </div>
           <textarea
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
@@ -108,6 +125,7 @@ function ChatBox() {
               value={results.join("\n")}
               className="chat-result"
               readOnly
+              placeholder="Hello there! How may I assist you today?"
             />
           ) : error ? (
             <div className="chat-error">

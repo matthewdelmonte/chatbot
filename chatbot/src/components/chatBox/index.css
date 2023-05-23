@@ -84,3 +84,9 @@
   background-color: #6c7194;
   color: #fff;
 }
+
+.chat-switch {
+  margin-left: 10px;
+  font-size: 14px;
+  padding: 5px;
+}
