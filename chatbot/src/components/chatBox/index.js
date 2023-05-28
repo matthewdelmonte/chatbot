@@ -38,8 +38,8 @@ function ChatBox() {
   const handleChange = async () => {
     setLoading(true);
     try {
-      // add a 1 second delay
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      // add a 3 second delay
+      await new Promise((resolve) => setTimeout(resolve, 3000));
       const response = await openai.createCompletion({
         model: model,
         prompt: prompt,
@@ -56,8 +56,8 @@ function ChatBox() {
   };
 
   const handleClick = async () => {
-    // add a 1 second delay
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    // add a 3 second delay
+    await new Promise((resolve) => setTimeout(resolve, 3000));
     handleChange();
   };
 
