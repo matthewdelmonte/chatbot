@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Configuration, OpenAIApi } from "openai";
+import OpenAI from "openai";
 import "./index.css";
 
 function ChatBox() {
-  const config = new Configuration({
+  const openai = new OpenAI({
     organization: process.env.REACT_APP_OPENAI_ORG_KEY,
     apiKey: process.env.REACT_APP_OPENAI_API_KEY,
   });
-
-  const openai = new OpenAIApi(config);
 
   const [prompt, setPrompt] = useState("");
   const [results, setResults] = useState([]);
