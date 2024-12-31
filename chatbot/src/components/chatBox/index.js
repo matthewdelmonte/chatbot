@@ -6,6 +6,7 @@ function ChatBox() {
   const openai = new OpenAI({
     organization: process.env.REACT_APP_OPENAI_ORG_KEY,
     apiKey: process.env.REACT_APP_OPENAI_API_KEY,
+    dangerouslyAllowBrowser: true,
   });
 
   const [prompt, setPrompt] = useState("");
@@ -14,7 +15,7 @@ function ChatBox() {
   const [consoleError, setConsoleError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [chatVisible, setChatVisible] = useState(false);
-  const [model, setModel] = useState("text-davinci-001");
+  const [model, setModel] = useState("gpt-4o");
 
   useEffect(() => {
     const errorHandler = (error) => {
@@ -38,13 +39,13 @@ function ChatBox() {
     try {
       // add a 3 second delay
       await new Promise((resolve) => setTimeout(resolve, 3000));
-      const response = await openai.createCompletion({
+      const response = await openai.chat.completions.create({
         model: model,
-        prompt: prompt,
+        messages: [{ role: "user", content: prompt }],
         temperature: 0.2,
         max_tokens: 350,
       });
-      setResults([response.data.choices[0].text, ...results]);
+      setResults([response.choices[0].message.content, ...results]);
       setLoading(false);
     } catch (error) {
       setError(error);
@@ -98,8 +99,9 @@ function ChatBox() {
                 }}
                 className="chat-switch"
               >
-                <option value="text-davinci-001">Davinci 001 (General)</option>
-                <option value="text-davinci-002">Davinci 002 (Code)</option>
+                <option value="gpt-4o">GPT-4o (Code)</option>
+                {/* <option value="text-davinci-001">Davinci 001 (General)</option> */}
+                <option value="gpt-3.5-turbo">GPT-3.5 turbo(General)</option>
               </select>
             </div>
           </div>
