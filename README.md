@@ -1,2 +1,2 @@
 # chatbot
-AI Chatbot POC for PS
+openAI API Chatbot POC
