@@ -15,8 +15,8 @@ const openai = new OpenAI({
 
 userInterface.prompt();
 userInterface.on("line", async (input) => {
-  const res = await openai.createChatCompletion({
-    model: "gpt-40-latest",
+  const res = await openai.chat.completions.create({
+    model: "gpt-4o",
     messages: [{ role: "user", content: input }],
   });
   console.log(res.data.choices[0].message.content);
