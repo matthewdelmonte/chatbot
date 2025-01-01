@@ -19,6 +19,6 @@ userInterface.on("line", async (input) => {
     model: "gpt-4o",
     messages: [{ role: "user", content: input }],
   });
-  console.log(res.data.choices[0].message.content);
+  console.log(res.choices[0].message.content);
 });
 userInterface.prompt();

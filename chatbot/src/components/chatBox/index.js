@@ -100,7 +100,6 @@ function ChatBox() {
                 className="chat-switch"
               >
                 <option value="gpt-4o">GPT-4o (Code)</option>
-                {/* <option value="text-davinci-001">Davinci 001 (General)</option> */}
                 <option value="gpt-3.5-turbo">GPT-3.5 turbo(General)</option>
               </select>
             </div>
