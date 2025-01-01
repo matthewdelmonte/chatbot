@@ -75,9 +75,9 @@ function ChatBox() {
 
   return (
     <>
-      <button className="chat-simulate-error" onClick={simulateError}>
+      {/* <button className="chat-simulate-error" onClick={simulateError}>
         Simulate Javascript Error
-      </button>
+      </button> */}
       {!chatVisible && (
         <button className="chat-toggle" onClick={handleChatToggle}>
           +
