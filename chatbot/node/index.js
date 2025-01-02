@@ -1,10 +1,10 @@
 import { config } from "dotenv";
 import OpenAI from "openai";
-import readline from "readline";
+import rl from "readline";
 import { stdin as input, stdout as output } from "node:process";
 config();
 
-const userInterface = readline.createInterface({ input, output });
+const userInterface = rl.createInterface({ input, output });
 
 const openai = new OpenAI({
   organization: process.env.OPENAI_API_ORG,
